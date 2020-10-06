@@ -1,18 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const SquareBlock = (props) => {
 
-    return (
-        <div>
-            <h1>dfdsfd</h1>
-        </div>
-    )
+    let table = [{line:1,value:[]},{line:2,value:[]}];
+    let i = 0
+
+    while (i < 2) {       
+        table[i].value = Array(10).fill(false)       
+        i++        
+    }
+
+    table[0].value[4] = true;
+    table[0].value[5] = true;
+    table[1].value[4] = true;
+    table[1].value[5] = true;
+
+    return table
 }
 
 const LBlock = (props) => {
+    
+    
     return (
         <div>
-            <h1>loremIncididunt excepteur deserunt exercitation labore do est ex. Amet duis ipsum magna pariatur pariatur. Elit veniam irure qui id ipsum culpa consequat dolore deserunt quis consectetur dolore incididunt laboris. Labore consectetur qui id sunt pariatur nulla sunt dolore irure aute.</h1>
+
         </div>
     )
 }

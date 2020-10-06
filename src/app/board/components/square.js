@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 
 const Square = (props) => {
 
-    const {active,key} = props;
-    console.log(key)
-    const [activity, setActivity] = useState(false);
+    const {isActive} = props;
+
+    // const [activity, setActivity] = useState(false);
  
     
 
@@ -15,10 +16,20 @@ const Square = (props) => {
     return (
         <div className='square'>
             {
-                active ? <div className='active'/> : <div />
+                isActive ? <div className='active'/> : <div />
             }
         </div>
     )
 }
+
+Square.propTypes = {
+	active		: PropTypes.bool,
+}
+
+Square.defaultProps = {
+    active      : false
+}
+
+
 
 export default Square;

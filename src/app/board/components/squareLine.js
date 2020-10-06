@@ -1,32 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Square} from './'
 
 const SquareLine = (props) => {
 
-    const {activeSquares, key : parentKey} = props;
-    console.log(props)
+    const {activity} = props;
     
-    let squares = [];
-
-    let i = 0;
-    while (i<10) {
-        squares.push([[`Square_${i}`],[activeSquares[i]]])
-        i++
-    }
-
-
     return (
         <div className='square--line'>
-            {squares.map((value,index) => {
-               
-                const [key,IsActive] = value;
-                // console.log(`${parentKey}_${key}_${i}`)
-              
-                return <Square key={`${parentKey}_${key}_${i}`} active={IsActive}/>
+            {activity.map((isActive,index) => {                            
+                // console.log(isActive)
+                return <Square isActive={isActive} key={`Square_${index}`} />
             })}
             
         </div>
     )
 }
 
+SquareLine.propTypes = {
+    activity        : PropTypes.array.isRequired,
+}
+
+SquareLine.defaultProps = {
+    activity        : []
+}
+
 export default SquareLine;
+
+// activity={line[index] ? true : false}
